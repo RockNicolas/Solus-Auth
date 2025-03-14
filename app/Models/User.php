@@ -10,7 +10,7 @@ class User extends Authenticate
 {
     use Notifiable;
 
-    protected $table = '';
+    protected $table = 'usuarios';
 
     public $timestamps = 'true';
 

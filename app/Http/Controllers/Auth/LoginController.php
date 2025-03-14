@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 
 class LoginController extends Controller
 {
-    public function showLoginForme()
+    public function showLoginForm()
     {
         return view('auth.login');
     }
@@ -33,4 +33,9 @@ class LoginController extends Controller
             'Test' => 'Nome de usuario inválido.',
         ]);
     }
+        public function logout()
+        {
+            Auth::logout();
+            return redirect('/login');
+        }
 }
