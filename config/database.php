@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'oracle'),
 
     /*
     |--------------------------------------------------------------------------
@@ -41,6 +41,18 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+        ],
+
+        'oracle' => [
+            'driver'        => 'oracle',
+            'tns'           => env('DB_TNS'),
+            'host'          => env('DB_ORA_HOST'),
+            'port'          => env('DB_ORA_PORT'),
+            'database'      => env('DB_SERVICE_NAME'), // Pode ser removido se usar o TNS
+            'username'      => env('DB_ORA_USERNAME'),
+            'password'      => env('DB_ORA_PASSWORD'),
+            'charset'       => 'AL32UTF8',
+            'prefix'        => '',
         ],
 
         'mysql' => [
