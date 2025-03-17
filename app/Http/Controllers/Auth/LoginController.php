@@ -12,21 +12,21 @@ class LoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('auth.login');
+        return view('auth.login');  
     }
 
     public function login(Request $request)
     {
         $request->validate([
-            'username' => 'required',
-            'senha' => 'required',
+            'username' => 'required',  
+            'senha' => 'required', 
         ]);
 
-        $user = User::where('username', $request->username)->first();
+        $user = User::findByUsernameAndPassword($request->username, $request->senha);
 
-        if ($user && Hash::check($request->senha, $user->senha)) {
+        if ($user) {
             Auth::login($user);
-            return redirect()->intended('/home');
+            return redirect()->intended('/home');  
         }
 
         return back()->withErrors([
@@ -36,7 +36,7 @@ class LoginController extends Controller
 
     public function logout()
     {
-        Auth::logout();
-        return redirect('/login');
+        Auth::logout();  
+        return redirect('/login');  
     }
 }

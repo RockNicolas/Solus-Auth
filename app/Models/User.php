@@ -10,16 +10,16 @@ class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = 'segusua';  
+    protected $table = 'SOLUS.SEGUSUA';  
     public $timestamps = false;  
 
     protected $fillable = [
-        'cnomeusua',
+        'cnomeusua', 
         'csenhusua', 
     ];
 
     protected $hidden = [
-        'csenhusua',
+        'csenhusua', 
     ];
 
     public function getAuthPassword()
@@ -27,10 +27,14 @@ class User extends Authenticatable
         return $this->csenhusua; 
     }
 
-    public static function findByName($name)
+    public static function findByUsernameAndPassword($username, $password)
     {
-        return DB::table('segusua')
-            ->where(DB::raw('upper(cnomeusua)'), '=', strtoupper($name)) 
-            ->first();
+        return DB::table('SOLUS.SEGUSUA')
+            ->whereRaw('upper(cnomeusua) = ?' , [strtoupper($username)])  
+            ->where('csenhusua', $password)  
+            ->where('cstatusua', 'A')  
+            ->where('nnumeperf', '!=', 25236865) 
+            ->where('dvensusua', '>=', now())  
+            ->first();  
     }
 }

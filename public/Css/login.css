@@ -1,0 +1,27 @@
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.error-message {
+    animation: slideInFromRight 0.5s ease-out;
+}
+
+#error-message {
+    border: 2px solid red;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+#capsLockWarning {
+    animation: slideInFromRight 0.5s ease-out;
+    border: 2px solid red;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgba(255, 0, 0, 0.1);
+}
