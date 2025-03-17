@@ -18,24 +18,25 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $request->validate([
-            'Test' => 'requerid|Test',
-            'senha' => 'requerid',
+            'username' => 'required',
+            'senha' => 'required',
         ]);
 
-        $user = User::where('Test', $request->Test)->first();
+        $user = User::where('username', $request->username)->first();
 
-        if ($user && Hash::check($request->senha, $user->senha)){
+        if ($user && Hash::check($request->senha, $user->senha)) {
             Auth::login($user);
             return redirect()->intended('/home');
         }
 
         return back()->withErrors([
-            'Test' => 'Nome de usuario inválido.',
+            'username' => 'Nome de usuário ou senha inválidos.',
         ]);
     }
-        public function logout()
-        {
-            Auth::logout();
-            return redirect('/login');
-        }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
+    }
 }

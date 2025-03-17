@@ -48,7 +48,7 @@ return [
             'tns'           => env('DB_TNS'),
             'host'          => env('DB_ORA_HOST'),
             'port'          => env('DB_ORA_PORT'),
-            'database'      => env('DB_SERVICE_NAME'), // Pode ser removido se usar o TNS
+            'database'      => env('DB_SERVICE_NAME'),
             'username'      => env('DB_ORA_USERNAME'),
             'password'      => env('DB_ORA_PASSWORD'),
             'charset'       => 'AL32UTF8',

@@ -2,29 +2,35 @@
 
 namespace App\Models;
 
-use App\Http\Middleware\Authenticate;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 
-class User extends Authenticate
+class User extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = 'usuarios';
-
-    public $timestamps = 'true';
+    protected $table = 'segusua';  
+    public $timestamps = false;  
 
     protected $fillable = [
-        'Test',
-        'senha',
+        'cnomeusua',
+        'csenhusua', 
     ];
 
     protected $hidden = [
-        'senha',
+        'csenhusua',
     ];
-        
+
     public function getAuthPassword()
     {
-        return $this->senha;
+        return $this->csenhusua; 
+    }
+
+    public static function findByName($name)
+    {
+        return DB::table('segusua')
+            ->where(DB::raw('upper(cnomeusua)'), '=', strtoupper($name)) 
+            ->first();
     }
 }

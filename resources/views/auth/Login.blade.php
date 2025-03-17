@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
     <link rel="icon" href="{{ asset('images/solus.png') }}" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 flex justify-center items-center h-screen m-0 relative"></bodyclass>
+<body class="bg-gray-100 flex justify-center items-center h-screen m-0 relative">
     <div class="absolute top-0 left-0 w-full h-full bg-cover bg-center z-[-1]" 
         style="background-image: url('');">
     </div>
@@ -16,8 +16,8 @@
         <form action="{{ url('login') }}" method="POST">
             @csrf
             <div class="mb-4">
-                <label for="Test" class="block text-left text-gray-600 mb-2">Usuário:</label>
-                <input type="text" name="Test" id="Test" value="{{ old('Test') }}" required
+                <label for="username" class="block text-left text-gray-600 mb-2">Usuário:</label>
+                <input type="text" name="username" id="username" value="{{ old('username') }}" required
                     class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
             </div>
 
