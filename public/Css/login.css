@@ -12,15 +12,7 @@
 }
 
 #error-message {
-    border: 2px solid red;
-    border-radius: 8px;
-    padding: 10px;
-    background-color: rgba(255, 0, 0, 0.1);
-}
-
-#capsLockWarning {
-    animation: slideInFromRight 0.5s ease-out;
-    border: 2px solid red;
+    border: 2px solid black;
     border-radius: 8px;
     padding: 10px;
     background-color: rgba(255, 0, 0, 0.1);

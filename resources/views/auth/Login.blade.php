@@ -7,10 +7,10 @@
     <link rel="icon" href="{{ asset('images/solus.png') }}" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link href="{{ asset('Css/login.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/login.js') }}" defer></script>
+    <script src="{{ asset('Js/login.js') }}" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-black flex justify-center items-center h-screen m-0 relative">
+<body class="bg-gradient-to-r from-[#008070] to-[#800042] flex justify-center items-center h-screen m-0 relative">
     <div class="absolute top-0 left-0 w-full h-full bg-cover bg-center z-[-1]" style="background-image: url('');"></div>
     <div class="bg-white bg-opacity-80 p-8 rounded-lg shadow-lg w-96 text-center">
         <h2 class="text-2xl font-semibold mb-6 text-gray-700">Login</h2>
@@ -27,6 +27,7 @@
                 <input type="password" name="senha" id="senha" required
                     class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <i id="togglePassword" class="fas fa-eye absolute right-3 top-10 text-black cursor-pointer text-2xl"></i>
+                <p id="capsWarning" class="text-red-500 text-sm mt-1 hidden">Caps Lock está ativado!</p>
             </div>
 
             <button type="submit"
@@ -42,10 +43,6 @@
                 </ul>
             @endif
         </form>
-
-        <div id="capsLockWarning" class="text-red-500 text-sm mt-2 hidden absolute top-0 right-0 p-4">
-            <p>Caps Lock está ativado.</p>
-        </div> 
     </div>
 </body>
 </html>

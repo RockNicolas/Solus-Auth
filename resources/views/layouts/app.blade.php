@@ -11,9 +11,7 @@
 <body class="bg-blue">
   <header class="h-16 flex items-center justify-between p-0 px-5 fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-[#008070] to-[#800042]">
     <div class="logo-container" onclick="toggleMenu()">
-        <a>
-            <img id="logo" class="rotate transition-transform duration-500 ease-in-out" src="{{ asset('images/solus.png') }}" alt="Ícone" width="42" height="42">
-        </a>
+        <img id="logo" class="rotate transition-transform duration-500 ease-in-out" src="{{ asset('images/solus.png') }}" alt="Ícone" width="42" height="42">
     </div>
   </header>
 

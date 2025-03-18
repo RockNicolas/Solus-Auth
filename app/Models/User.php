@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class User extends Authenticatable
 {
     use Notifiable;
-
+    
     protected $table = 'SOLUS.SEGUSUA';  
     public $timestamps = false;  
 
