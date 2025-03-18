@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solus</title>
-    <link rel="icon" href="{{ asset('images/solus.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('images/icons/solus.png') }}" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-    <link href="{{ asset('Css/login.css') }}" rel="stylesheet">
-    <script src="{{ asset('Js/login.js') }}" defer></script>
+    <link href="{{ asset('Css/Login/login.css') }}" rel="stylesheet">
+    <script src="{{ asset('Js/Login/login.js') }}" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gradient-to-r from-[#008070] to-[#800042] flex justify-center items-center h-screen m-0 relative">

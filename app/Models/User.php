@@ -37,4 +37,16 @@ class User extends Authenticatable
             ->where('dvensusua', '>=', now())  
             ->first();  
     }
+
+    /* 
+    public static function findByUsername($username)
+    {
+        return DB::table('SOLUS.SEGUSUA')
+            ->whereRaw('upper(cnomeusua) = ?', [strtoupper($username)])  
+            ->where('cstatusua', 'A')  
+            ->where('nnumeperf', '!=', 25236865) 
+            ->where('dvensusua', '>=', now())  
+            ->first();  
+    }
+    */
 }
