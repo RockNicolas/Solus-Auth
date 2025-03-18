@@ -18,7 +18,7 @@
     <div class="relative">
       <button class="flex items-center text-white focus:outline-none" onclick="toggleDropdown()">
         <i class="fas fa-user-circle text-2xl mr-2"></i>
-        <!-- CrIADO PARA VER A VERIFICAÇÃO DE AUTH(TESTE) -->
+        <!-- CRIADO PARA VER A VERIFICAÇÃO DE AUTH(TESTE) -->
         @if(Auth::check())
           <span>{{ Auth::user()->cnomeusua }}</span>
         @else
@@ -28,9 +28,9 @@
 
       <div id="userMenu" class="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg hidden">
         <ul>
-          <!--<li>
-            <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Perfil</a>
-          </li> -->
+          <li>
+            <button id="openProfileModal" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Perfil</button>
+          </li>
           <li>
             <form action="{{ route('logout') }}" method="POST" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
               @csrf
@@ -41,6 +41,23 @@
       </div>
     </div>
   </header>
+  <!--CRIAÇÃO DE MODAL PARA O USER PODER VER SEUS DADOS-->
+  <div id="profileModal" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-6 rounded-md shadow-lg w-1/3">
+      <h2 class="text-2xl mb-4">Perfil</h2>
+      
+      @if(Auth::check())
+        <p><strong>Nome Completo:</strong> {{ Auth::user()->cncomusua }}</p>
+        <p><strong>Usuário:</strong> {{ Auth::user()->cnomeusua }}</p>
+        <p><strong>Data de Nascimento:</strong> {{ Auth::user()->dvensusua }}</p>
+        <p><strong>Email:</strong> {{ Auth::user()->cmailusua }}</p>
+      @else
+        <p>Usuário não autenticado.</p>
+      @endif
+      
+      <button id="closeProfileModal" class="mt-4 w-full bg-red-500 text-white p-2 rounded-md">Fechar</button>
+    </div>
+  </div>
 
   <div class="mt-16">
     @yield('content') 
