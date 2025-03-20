@@ -7,11 +7,11 @@ togglePassword.addEventListener('click', function () {
     this.classList.toggle('fa-eye-slash');
 });
 
-window.addEventListener('DOMContentLoaded', function() {
+window.addEventListener('DOMContentLoaded', function () {
     const errorMessage = document.getElementById('error-message');
     if (errorMessage) {
-        setTimeout(function() {
-            errorMessage.style.display = 'none'; 
+        setTimeout(function () {
+            errorMessage.style.display = 'none';
         }, 5000);
     }
 });
@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', function() {
 const senhaInput = document.getElementById('senha');
 const capsWarning = document.getElementById('capsWarning');
 
-senhaInput.addEventListener('keydown', function(event) {
+senhaInput.addEventListener('keydown', function (event) {
     if (event.getModifierState('CapsLock')) {
         capsWarning.classList.remove('hidden');
     } else {

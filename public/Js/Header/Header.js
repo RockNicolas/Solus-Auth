@@ -17,7 +17,7 @@ closeProfileModal.addEventListener("click", () => {
 
 window.addEventListener("click", (event) => {
     if (event.target === profileModal) {
-      profileModal.classList.add("hidden");
+        profileModal.classList.add("hidden");
     }
 });
 
