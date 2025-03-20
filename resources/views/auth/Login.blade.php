@@ -10,41 +10,61 @@
     <script src="{{ asset('Js/Login/Login.js') }}" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gradient-to-r from-[#008070] to-[#800042] flex justify-center items-center h-screen m-0 relative">
-    <div class="absolute top-0 left-0 w-full h-full bg-cover bg-center z-[-1]"
-        style="background-image: url('');">
-    </div>
-    <div class="bg-white bg-opacity-80 p-8 rounded-lg shadow-lg w-96 text-center">
-        <h2 class="text-2xl font-semibold mb-6 text-gray-700">Login</h2>
-        <form action="{{ url('login') }}" method="POST">
-            @csrf
-            <div class="mb-4">
-                <label for="username" class="block text-left text-gray-600 mb-2">Usuário:</label>
-                <input type="text" name="username" id="username" value="{{ old('username') }}" required
-                    class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-            </div>
 
-            <div class="mb-6 relative">
-                <label for="senha" class="block text-left text-gray-600 mb-2">Senha:</label>
-                <input type="password" name="senha" id="senha" required
-                    class="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <i id="togglePassword" class="fas fa-eye absolute right-3 top-10 text-black cursor-pointer text-2xl"></i>
-                <p id="capsWarning" class="text-red-500 text-sm mt-1 hidden">Caps Lock está ativado!</p>
-            </div>
+<body class="h-screen flex items-center justify-center bg-gradient-to-r from-[#B9024A] to-[#00538E]">
+    <div class="flex w-4/5 h-4/5 bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div class="w-1/2 flex flex-col justify-center items-center px-12 bg-white rounded-l-2xl">
+            <img src="{{ asset('Images/Icons/Solus.png') }}" class="w-12 mb-4" alt="Logo">
+            <h2 class="text-2xl font-bold text-gray-700 mb-2">Boas vindas!</h2>
+            <p class="text-gray-500 mb-6">Insira suas credenciais para obter o acesso.</p>
 
-            <button type="submit"
-                class="w-full py-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                Login
-            </button>
+            <form action="{{ url('login') }}" method="POST" class="w-full relative">
+                @csrf
 
-            @if ($errors->any())
-                <ul id="error-message" class="mt-4 text-red-500 text-sm absolute top-0 right-0 p-4 rounded-lg border-2 border-red-500">
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            @endif
-        </form>
+                <div class="mb-4 flex justify-center">
+                    <div class="w-80">
+                        <label for="username" class="block text-gray-600 text-sm">Usuário</label>
+                        <input type="text" name="username" id="username" required
+                            class="w-full h-10 p-4 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500
+                            @if ($errors->has('username')) border-red-500 @endif">
+                    </div>
+                </div>
+
+                <div class="mb-4 flex justify-center">
+                    <div class="w-80 relative">
+                        <label for="senha" class="block text-gray-600 text-sm">Senha</label>
+                        <input type="password" name="senha" id="senha" required
+                            class="w-full h-10 p-4 pr-12 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500
+                            @if ($errors->has('username')) border-red-500 @endif">
+                        <i id="togglePassword" class="fas fa-eye absolute right-3 top-8 text-gray-500 cursor-pointer"></i>
+                        <p id="capsWarning" class="text-red-500 text-sm mt-1 hidden">Caps Lock está ativado!</p>
+                    </div>
+                </div>
+
+                 @if ($errors->has('username'))
+                    <p class="text-red-500 text-sm mt-[-15px] ml-[66px] ">
+                        {{ $errors->first('username') }}
+                    </p>
+                @endif
+
+                <div class="flex justify-center">
+                    <div class="w-80">
+                        <button type="submit"
+                            class="w-full py-3 bg-[#00538E] text-white font-semibold rounded-md hover:bg-blue-700 transition">
+                            Entrar
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="w-1/2 bg-[#00538E] text-white flex flex-col justify-center items-center text-center px-10 rounded-r-2xl relative">
+            <p class="text-2xl ml-[-90px]">Acesse agora a</p>
+            <h1 class="text-6xl font-bold tracking-[10px] ml-[-10px]">SOLUS</h1>
+            <p class="text-xl mt-2 ml-[70px]">A saúde do seu plano</p>
+            <div class="absolute top-5 left-5 w-16 h-16 border-2 border-white rounded-lg transform rotate-45"></div>
+            <div class="absolute bottom-5 right-5 w-16 h-16 border-2 border-white rounded-lg transform rotate-45"></div>
+        </div>
     </div>
 </body>
 </html>
