@@ -6,6 +6,7 @@
   <link rel="icon" href="{{ asset('Images/Icons/Solus.png') }}" type="image/x-icon">
   <title>Solus</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="{{ asset('Css/Header/Header.css') }}" rel="stylesheet">
   <script src="{{ asset('Js/Header/Header.js') }}" defer></script>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -14,7 +15,6 @@
     <div class="logo-container" onclick="toggleMenu()">
         <img id="logo" class="rotate transition-transform duration-500 ease-in-out" src="{{ asset('Images/Icons/Solus.png') }}" alt="Ícone" width="42" height="42">
     </div>
-
     <div class="relative">
       <button class="flex items-center text-white focus:outline-none" onclick="toggleDropdown()">
         <i class="fas fa-user-circle text-2xl mr-2"></i>

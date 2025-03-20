@@ -62,8 +62,16 @@
             <p class="text-2xl ml-[-90px]">Acesse agora a</p>
             <h1 class="text-6xl font-bold tracking-[10px] ml-[-10px]">SOLUS</h1>
             <p class="text-xl mt-2 ml-[70px]">A saúde do seu plano</p>
-            <div class="absolute top-5 left-5 w-16 h-16 border-2 border-white rounded-lg transform rotate-45"></div>
-            <div class="absolute bottom-5 right-5 w-16 h-16 border-2 border-white rounded-lg transform rotate-45"></div>
+
+            <div class="absolute top-[-20px] left-6 flex items-center justify-center">
+                <div class="w-12 h-36 border-2 border-white rounded-full"></div>
+                <div class="w-36 h-12 border-2 border-white rounded-full absolute"></div>
+            </div>
+
+            <div class="absolute bottom-[-20px] right-6 flex items-center justify-center">
+                <div class="w-12 h-36 border-2 border-white rounded-full"></div>
+                <div class="w-36 h-12 border-2 border-white rounded-full absolute"></div>
+            </div>
         </div>
     </div>
 </body>
