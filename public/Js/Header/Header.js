@@ -23,10 +23,10 @@ window.addEventListener("click", (event) => {
 
 function toggleMenu() {
     const logo = document.getElementById('logo');
-    
+
     logo.classList.add('rotate-animation');
 
     setTimeout(() => {
-        location.reload(); 
-    }, 500); 
+        location.reload();
+    }, 500);
 }
