@@ -16,7 +16,7 @@ class LoginController extends Controller
         return view('auth.login');  
     }
 
-    public function login(Request $request)
+    /*public function login(Request $request)
     {
         $request->validate([
             'username' => 'required',  
@@ -34,9 +34,9 @@ class LoginController extends Controller
         return back()->withErrors([
             'username' => 'Nome de usuário ou senha inválidos.',
         ]);
-    }
+    } */
 
-   /* public function login(Request $request)
+    public function login(Request $request)
     {
         $request->validate([
             'username' => 'required',  
@@ -53,7 +53,7 @@ class LoginController extends Controller
         return back()->withErrors([
             'username' => 'Nome de usuário ou senha inválidos.',
         ]);
-    } */
+    } 
 
     public function logout()
     {

@@ -27,7 +27,7 @@ class User extends Authenticatable
         return $this->csenhusua; 
     }
 
-    public static function findByUsernameAndPassword($username, $password)
+    /*public static function findByUsernameAndPassword($username, $password)
     {
         return DB::table('SOLUS.SEGUSUA')
             ->whereRaw('upper(cnomeusua) = ?' , [strtoupper($username)])  
@@ -36,9 +36,7 @@ class User extends Authenticatable
             ->where('nnumeperf', '!=', 25236865) 
             ->where('dvensusua', '>=', now())  
             ->first();  
-    }
-
-    /* 
+    }*/
     public static function findByUsername($username)
     {
         return DB::table('SOLUS.SEGUSUA')
@@ -47,6 +45,5 @@ class User extends Authenticatable
             ->where('nnumeperf', '!=', 25236865) 
             ->where('dvensusua', '>=', now())  
             ->first();  
-    }
-    */
+    }   
 }

@@ -43,22 +43,26 @@
   </header>
   <!--CRIAÇÃO DE MODAL PARA O USER PODER VER SEUS DADOS-->
   <div id="profileModal" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
-    <div class="bg-white p-6 rounded-md shadow-lg w-1/3">
-      <h2 class="text-2xl mb-4">Perfil</h2>
+    <div class="bg-white p-10 rounded-md shadow-lg w-2/3 md:w-1/2 lg:w-1/3">
+      <h2 class="text-3xl font-semibold mb-6 text-center">Perfil</h2>
       
       @if(Auth::check())
-        <p><strong>Nome Completo:</strong> {{ Auth::user()->cncomusua }}</p>
-        <p><strong>Usuário:</strong> {{ Auth::user()->cnomeusua }}</p>
-        <p><strong>Data de Nascimento:</strong> {{ Auth::user()->dvensusua }}</p>
-        <p><strong>Email:</strong> {{ Auth::user()->cmailusua }}</p>
+        <p class="text-lg"><strong>Nome Completo:</strong> {{ Auth::user()->cncomusua }}</p>
+        <p class="text-lg"><strong>Usuário:</strong> {{ Auth::user()->cnomeusua }}</p>
+        <p class="text-lg"><strong>Data de Nascimento:</strong> {{ Auth::user()->dvensusua }}</p>
+        <p class="text-lg"><strong>Email:</strong> {{ Auth::user()->cmailusa }}</p>
       @else
-        <p>Usuário não autenticado.</p>
+        <p class="text-lg"><strong>Nome Completo:</strong> </p>
+        <p class="text-lg"><strong>Usuário:</strong> </p>
+        <p class="text-lg"><strong>Data de Nascimento:</strong> </p>
+        <p class="text-lg"><strong>Email:</strong> </p>
+        <p class="text-lg">Usuário não autenticado.</p>
       @endif
       
-      <button id="closeProfileModal" class="mt-4 w-full bg-red-500 text-white p-2 rounded-md">Fechar</button>
+      <button id="closeProfileModal" class="mt-6 w-full bg-red-500 text-white p-3 rounded-md text-lg">Fechar</button>
     </div>
-
   </div>
+
   <div class="mt-16">
     @yield('content') 
   </div>
