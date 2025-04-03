@@ -33,7 +33,7 @@
                 <div class="mb-4 flex justify-center">
                     <div class="w-80 relative">
                         <label for="senha" class="block text-gray-600 text-sm">Senha</label>
-                        <input type="password" name="senha" id="senha" required
+                        <input type="password" name="password" id="password" required
                             class="w-full h-10 p-4 pr-12 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-500
                             @if ($errors->has('username')) border-red-500 @endif">
                         <i id="togglePassword" class="fas fa-eye absolute right-3 top-8 text-gray-500 cursor-pointer"></i>
