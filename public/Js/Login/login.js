@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-const senhaInput = document.getElementById('senha');
+const senhaInput = document.getElementById('password');
 const capsWarning = document.getElementById('capsWarning');
 
 senhaInput.addEventListener('keydown', function (event) {
@@ -26,3 +26,7 @@ senhaInput.addEventListener('keydown', function (event) {
         capsWarning.classList.add('hidden');
     }
 });
+
+window.onload = function() {
+    document.getElementById('username').focus();
+};

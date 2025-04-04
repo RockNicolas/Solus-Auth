@@ -39,4 +39,5 @@
 
 </body>
 </script>
+<x-footer />
 @endsection
