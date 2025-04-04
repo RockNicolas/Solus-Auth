@@ -1,8 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<!--So para testar -->
-<title>Formulário de Nome</title>
+
+<!--So para testar components-->
+<!--<title>Formulário de Nome</title>
     <script>
         function salvarNome() {
             const nome = document.getElementById('nome').value;
@@ -38,6 +39,6 @@
     <p id="mensagem"></p>
 
 </body>
-</script>
+</script> -->
 <x-footer />
 @endsection

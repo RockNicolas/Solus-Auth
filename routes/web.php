@@ -10,7 +10,7 @@ Route::get('/', function() {
 
 Route::get('/home', function () {
     return view('home');
-})/*->middleware('auth')*/;
+})->middleware('auth');
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login.form');
 Route::post('login', [LoginController::class, 'login'])->name('login');

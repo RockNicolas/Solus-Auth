@@ -18,7 +18,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
 const senhaInput = document.getElementById('password');
 const capsWarning = document.getElementById('capsWarning');
-
 senhaInput.addEventListener('keydown', function (event) {
     if (event.getModifierState('CapsLock')) {
         capsWarning.classList.remove('hidden');
@@ -27,6 +26,6 @@ senhaInput.addEventListener('keydown', function (event) {
     }
 });
 
-window.onload = function() {
+window.addEventListener('DOMContentLoaded', function () {
     document.getElementById('username').focus();
-};
+});

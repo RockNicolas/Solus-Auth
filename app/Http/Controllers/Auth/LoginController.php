@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -22,11 +20,12 @@ class LoginController extends Controller
             'username' => 'required',  
             'password' => 'required', 
         ]);
-      //  Log::info('Senha criptografada:', ['hashed_password' => $hashedPassword]);
+        
         $user = User::findByUsername(
             $request->username,
         );
 
+        //dd($user);
         if($user->cnomeusua === $request->username && $user->csenhusua === md5($request->password)){
             return back()->withErrors([
                 'username' => 'Usuário Válido!',
@@ -37,15 +36,8 @@ class LoginController extends Controller
             'username' => 'Nome de usuário ou senha inválidos.',
         ]);
 
-        /*if (!$user) {
-            return back()->withErrors([
-                'username' => 'Nome de usuário ou senha inválidos.',
-            ]);
-        } */
-
-        
+        //Teste 
         //Auth::login($user, false);
-          
         //return redirect()->intended('/home'); 
     }
 

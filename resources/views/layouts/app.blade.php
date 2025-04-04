@@ -11,7 +11,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-blue">
-  <header class="h-16 flex items-center justify-between p-0 px-5 fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-[#008070] to-[#800042]">
+  <header class="h-16 flex items-center justify-between p-0 px-5 fixed top-0 left-0 w-full z-50 bg-gray-700">
     <div class="logo-container" onclick="toggleMenu()">
         <img id="logo" class="rotate transition-transform duration-500 ease-in-out" src="{{ asset('Images/Icons/Solus.png') }}" alt="Ícone" width="42" height="42">
     </div>
@@ -41,7 +41,7 @@
       </div>
     </div>
   </header>
-  <!--CRIAÇÃO DE MODAL PARA O USER PODER VER SEUS DADOS-->
+  <!--CRIAÇÃO DE MODAL PARA O USER PODER VER SEUS DADOS(TESTE)-->
   <div id="profileModal" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
     <div class="bg-white p-10 rounded-md shadow-lg w-2/3 md:w-1/2 lg:w-1/3">
       <h2 class="text-3xl font-semibold mb-6 text-center">Perfil</h2>
