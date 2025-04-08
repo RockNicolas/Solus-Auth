@@ -84,9 +84,13 @@ class LoginController extends Controller
             'password' => 'required', 
         ]);
      
-        $user = User::findByUsername(
+
+        $user = User::where('cnomeusua', $request->username)->first();
+
+       
+       /*$user = User::findByUsername(
             $request->username,
-        );
+        ); */
 
         if (!$user) {
             return back()->withErrors([
@@ -102,7 +106,7 @@ class LoginController extends Controller
 
         if ($user->cnomeusua === $request->username && $user->csenhusua === md5($request->password)) {
             Auth::login($user); //Argument 1 passed to Illuminate\Auth\SessionGuard::login()
-           // dd(Auth:: check());
+            //dd();
             return redirect('/home');
         }
         
@@ -110,7 +114,7 @@ class LoginController extends Controller
             'username' => 'Nome de usuário ou senha inválidos.',
         ]);
 
-        //TESTE DE ROTA
+         //TESTE DE ROTA
         //Auth::login($user);
        // return redirect()->intended('/home'); 
     }
