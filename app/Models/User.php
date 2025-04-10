@@ -25,24 +25,18 @@ class User extends Authenticatable
     {
         return $this->csenhusua; 
     }
-    
-   public static function findByUsername($username)
+
+    public function getAuthIdentifierName()
     {
-        return DB::table('SOLUS.SEGUSUA')
-            ->whereRaw('upper(cnomeusua) = ?', [strtoupper($username)])  
-            ->where('cstatusua', 'A')  
-            ->where('nnumeperf', '!=', 25236865) 
-            ->where('dvensusua', '>=', date('Y/m/d'))  
-            ->first();  
-    }    
+        return 'cnomeusua';
+    }
         
-     /*public static function findByUsername($username)
+     public static function findByUsername($username)
     {
         return self::whereRaw('UPPER(cnomeusua) = ?', [strtoupper($username)])
             ->where('cstatusua', 'A')
             ->where('nnumeperf', '!=', 25236865)
             ->whereDate('dvensusua', '>=', now()->toDateString())
             ->first();
-    }*/
-    
+    } 
 }

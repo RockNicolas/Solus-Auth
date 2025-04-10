@@ -10,7 +10,6 @@
     <script src="{{ asset('Js/Login/Login.js') }}" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-
 <body class="h-screen flex items-center justify-center bg-gradient-to-r from-[#B9024A] to-[#00538E]">
     <div class="flex w-4/5 h-4/5 bg-white rounded-2xl shadow-lg overflow-hidden">
         <div class="w-1/2 flex flex-col justify-center items-center px-12 bg-white rounded-l-2xl">

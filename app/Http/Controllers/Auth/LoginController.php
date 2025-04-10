@@ -12,7 +12,6 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('auth.login');
-        
     } 
     public function login(Request $request)
     {
@@ -21,9 +20,7 @@ class LoginController extends Controller
             'password' => 'required', 
         ]);
      
-        $user = User::where('cnomeusua', $request->username)->first();
-
-       //$user = User::findByUsername($request->username,); 
+       $user = User::findByUsername($request->username); 
 
         if (!$user) {
             return back()->withErrors([
@@ -32,22 +29,14 @@ class LoginController extends Controller
         }
 
         if ($user->cnomeusua === $request->username && $user->csenhusua === md5($request->password)) {
-            Auth::login($user); 
-            //dd(Auth::check(), Auth::user());
-            //return redirect('/home');
-            //return redirect()->route('home');
-            return redirect()->intended('/home');
-            //return redirect()->to('/home');
-            //return redirect()->intended(route('home'));
+            Auth::login($user);
+            return redirect('/home'); 
+        } else {
+            return back()->withErrors([
+                'username' => 'Nome de usuário ou senha inválidos.',
+            ]);
         }
-
-            /*return back()->withErrors([
-                'username' => 'Usuário Válido!', //return
-            ]);*/
-        
-        return back()->withErrors([
-            'username' => 'Nome de usuário ou senha inválidos.',
-        ]);
+    
     }
 
     public function logout()

@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="{{ asset('Images/Icons/Solus.png') }}" type="image/x-icon">
   <title>Solus</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="{{ asset('Css/Header/Header.css') }}" rel="stylesheet">
@@ -18,14 +17,12 @@
     <div class="relative">
       <button class="flex items-center text-white focus:outline-none" onclick="toggleDropdown()">
         <i class="fas fa-user-circle text-2xl mr-2"></i>
-        <!-- CRIADO PARA VER A VERIFICAÇÃO DE AUTH(TESTE) -->
         @if(Auth::check())
           <span>{{ Auth::user()->cnomeusua }}</span>
         @else
           <span>Usuário não autenticado</span>
         @endif
       </button>
-
       <div id="userMenu" class="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg hidden">
         <ul>
           <li>
@@ -41,7 +38,7 @@
       </div>
     </div>
   </header>
-  <!--CRIAÇÃO DE MODAL PARA O USER PODER VER SEUS DADOS(TESTE)-->
+
   <div id="profileModal" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
     <div class="bg-white p-10 rounded-md shadow-lg w-2/3 md:w-1/2 lg:w-1/3">
       <h2 class="text-3xl font-semibold mb-6 text-center">Perfil</h2>
@@ -49,13 +46,8 @@
       @if(Auth::check())
         <p class="text-lg"><strong>Nome Completo:</strong> {{ Auth::user()->cncomusua }}</p>
         <p class="text-lg"><strong>Usuário:</strong> {{ Auth::user()->cnomeusua }}</p>
-        <p class="text-lg"><strong>Data de Nascimento:</strong> {{ Auth::user()->dvensusua }}</p>
         <p class="text-lg"><strong>Email:</strong> {{ Auth::user()->cmailusa }}</p>
       @else
-        <p class="text-lg"><strong>Nome Completo:</strong> </p>
-        <p class="text-lg"><strong>Usuário:</strong> </p>
-        <p class="text-lg"><strong>Data de Nascimento:</strong> </p>
-        <p class="text-lg"><strong>Email:</strong> </p>
         <p class="text-lg">Usuário não autenticado.</p>
       @endif
       
@@ -64,7 +56,9 @@
   </div>
 
   <div class="mt-16">
-    @yield('content') 
+    @yield('content')
   </div>
+  
+  <x-footer />
 </body>
 </html>

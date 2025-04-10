@@ -8,9 +8,11 @@ Route::get('/', function() {
     return view('auth.login'); 
 })->name('login.form');
 
-Route::get('/home', function () {
-    return view('home');
-})->middleware('auth')->name('home');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', function () {
+        return view('home');
+    })->name('home');
+});
 
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login.form');
 Route::post('login', [LoginController::class, 'login'])->name('login');
