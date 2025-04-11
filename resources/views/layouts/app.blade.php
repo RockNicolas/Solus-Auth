@@ -16,12 +16,14 @@
     </div>
     <div class="relative">
       <button class="flex items-center text-white focus:outline-none" onclick="toggleDropdown()">
-        <i class="fas fa-user-circle text-2xl mr-2"></i>
-        @if(Auth::check())
-          <span>{{ Auth::user()->cnomeusua }}</span>
-        @else
-          <span>Usuário não autenticado</span>
-        @endif
+        <div class="flex items-center gap-2">
+            <img src="{{ Auth::user()->profile_photo_url ?? 'https://ui-avatars.com/api/?name=' . urlencode(Auth::user()->cncomusua) }}" alt="Avatar" class="w-10 h-10 rounded-full">
+              @if(Auth::check())
+                <span>{{ Auth::user()->cnomeusua }}</span>
+              @else
+                <span>Usuário não autenticado</span>
+              @endif
+          </div>
       </button>
       <div id="userMenu" class="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg hidden">
         <ul>
@@ -39,26 +41,49 @@
     </div>
   </header>
 
-  <div id="profileModal" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
-    <div class="bg-white p-10 rounded-md shadow-lg w-2/3 md:w-1/2 lg:w-1/3">
-      <h2 class="text-3xl font-semibold mb-6 text-center">Perfil</h2>
-      
+  <div id="profileModal" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden z-50">
+    <div class="relative bg-white p-8 rounded-xl shadow-lg w-[90%] max-w-md">
+      <button id="closeProfileModal" class="absolute top-4 right-4 text-gray-500 hover:text-red-500 text-2xl font-bold focus:outline-none">
+        X
+      </button>
+      <h2 class="text-2xl font-semibold mb-6 text-center">Meu perfil</h2>
+
       @if(Auth::check())
-        <p class="text-lg"><strong>Nome Completo:</strong> {{ Auth::user()->cncomusua }}</p>
-        <p class="text-lg"><strong>Usuário:</strong> {{ Auth::user()->cnomeusua }}</p>
-        <p class="text-lg"><strong>Email:</strong> {{ Auth::user()->cmailusa }}</p>
+        <div class="flex flex-col items-center mb-6">
+          <img src="{{ Auth::user()->profile_photo_url ?? 'https://ui-avatars.com/api/?name=' . urlencode(Auth::user()->cncomusua) }}" alt="Avatar" class="w-16 h-16 rounded-full mb-2">
+        </div>
+
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Nome completo:</label>
+            <input type="text" value="{{ Auth::user()->cncomusua }}" readonly class="w-full bg-gray-100 text-gray-700 p-2 rounded-md">
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Usuário:</label>
+            <input type="text" value="{{ Auth::user()->cnomeusua }}" readonly class="w-full bg-gray-100 text-gray-700 p-2 rounded-md">
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Email:</label>
+            <!--Alguns usuarios do banco não tem o email na coluna então fica vazio-->
+            <input type="text" value="{{ Auth::user()->cmailusua }}" readonly class="w-full bg-gray-100 text-gray-700 p-2 rounded-md">
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Data de nascimento:</label>
+            <input type="text" value="{{ \Carbon\Carbon::parse(Auth::user()->dnascusua)->format('d/m/Y') }}" readonly class="w-full bg-gray-100 text-gray-700 p-2 rounded-md">
+          </div>
+        </div>
       @else
-        <p class="text-lg">Usuário não autenticado.</p>
+        <p class="text-lg text-center">Usuário não autenticado.</p>
       @endif
-      
-      <button id="closeProfileModal" class="mt-6 w-full bg-red-500 text-white p-3 rounded-md text-lg">Fechar</button>
     </div>
   </div>
 
   <div class="mt-16">
     @yield('content')
   </div>
-  
   <x-footer />
 </body>
 </html>
