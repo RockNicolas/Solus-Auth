@@ -30,6 +30,7 @@ class LoginController extends Controller
 
         if ($user->cnomeusua === $request->username && $user->csenhusua === md5($request->password)) {
             Auth::login($user);
+            dd(Auth:check)
             return redirect('/home'); 
         } else {
             return back()->withErrors([
